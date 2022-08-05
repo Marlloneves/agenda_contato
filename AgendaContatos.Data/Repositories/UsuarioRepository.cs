@@ -12,6 +12,7 @@ namespace AgendaContatos.Data.Repositories
 {
     public class UsuarioRepository
     {
+        //método para inserir um usuário no banco de dados
         public void Create(Usuario usuario)
         {
             var sql = @"
@@ -20,17 +21,51 @@ namespace AgendaContatos.Data.Repositories
                     NOME,
                     EMAIL,
                     SENHA,
-                    DATACADASTRO)
+                    DATACADASTRO)   
                 VALUES(
                     @IdUsuario,
                     @Nome,
                     @Email,
-                    CONVERT(VARCHAR(32), HASHBYTES('MD5', @Senha), 2),
+                    CONVERT(VARCHAR(32), HASHBYTES('MD5', @Senha), 2)
                     @DataCadastro)
             ";
+
             using (var connection = new SqlConnection(SqlServerConfiguration.GetSqlConnectionString()))
             {
                 connection.Execute(sql, usuario);
+            }
+        }
+
+        //método para consultar 1 usuário baseado no email
+        public Usuario GetByEmail(string email)
+        {
+            var sql = @"
+                SELECT * FROM USUARIO
+                WHERE EMAIL = @email
+            ";
+
+            using (var connection = new SqlConnection(SqlServerConfiguration.GetSqlConnectionString()))
+            {
+                return connection
+                    .Query<Usuario>(sql, new { email })
+                    .FirstOrDefault();
+            }
+        }
+
+        //método para consultar 1 usuário baseado no email e senha
+        public Usuario GetByEmailAndSenha(string email, string senha)
+        {
+            var sql = @"
+                SELECT * FROM USUARIO
+                WHERE EMAIL = @email
+                AND SENHA = CONVERT(VARCHAR(32), HASHBYTES('MD5', @senha), 2)
+            ";
+
+            using (var connection = new SqlConnection(SqlServerConfiguration.GetSqlConnectionString()))
+            {
+                return connection
+                    .Query<Usuario>(sql, new { email, senha })
+                    .FirstOrDefault();
             }
         }
 

@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgendaContato.Mvc", "AgendaContato.Mvc\AgendaContato.Mvc.csproj", "{124D41A7-5EAC-4059-BC0F-F0EE6C464DC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgendaContatos.Data", "AgendaContatos.Data\AgendaContatos.Data.csproj", "{17F5B81A-6E1B-4824-8653-C356DAB7B871}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgendaContatos.Data", "AgendaContatos.Data\AgendaContatos.Data.csproj", "{17F5B81A-6E1B-4824-8653-C356DAB7B871}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation Layer", "1 - Presentation Layer", "{1F7D033C-CD9F-4883-BC1F-B7A6C5217B4E}"
 EndProject

@@ -1,0 +1,49 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Agenda de Contatos</title>
+
+    <!-- folha de estilos CSS do bootstrap -->
+    <link rel="stylesheet" href="~/css/bootstrap.css" />
+
+</head>
+<body>
+
+    <!-- menu no sistema -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Agenda de Contatos</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Contatos/Cadastro">Cadastrar Contatos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Contatos/Consulta">Consultar Contatos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- área principal da página -->
+    <div class="container mt-3">
+        <!-- local para entrada do conteudo das demais páginas -->
+        @RenderBody()
+    </div>
+
+    <!-- arquivo JS do bootstrap -->
+    <script src="~/js/bootstrap.js"></script>
+
+</body>
+</html>
